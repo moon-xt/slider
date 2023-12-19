@@ -13,13 +13,15 @@ export interface MarkProps {
 
 const Mark: React.FC<MarkProps> = (props) => {
   const { prefixCls, style, children, value, onClick } = props;
-  const { min, max, direction, includedStart, includedEnd, included } =
+  const { min, max, direction, includedStart, includedEnd, included, marksGap } =
     React.useContext(SliderContext);
 
   const textCls = `${prefixCls}-text`;
 
   // ============================ Offset ============================
-  const positionStyle = getDirectionStyle(direction, value, min, max);
+  const newMin = marksGap ? min - 0.5 : min;
+  const newMax = marksGap ? max + 0.5 : max;
+  const positionStyle = getDirectionStyle(direction, value, newMin, newMax);
 
   return (
     <span

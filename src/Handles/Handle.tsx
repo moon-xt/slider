@@ -52,6 +52,7 @@ const Handle = React.forwardRef<HTMLDivElement, HandleProps>((props, ref) => {
     ariaValueTextFormatterForHandle,
     styles,
     classNames,
+    marksGap,
   } = React.useContext(SliderContext);
 
   const handlePrefixCls = `${prefixCls}-handle`;
@@ -128,7 +129,9 @@ const Handle = React.forwardRef<HTMLDivElement, HandleProps>((props, ref) => {
   };
 
   // ============================ Offset ============================
-  const positionStyle = getDirectionStyle(direction, value, min, max);
+  const newMin = marksGap ? min - 0.5 : min;
+  const newMax = marksGap ? max + 0.5 : max;
+  const positionStyle = getDirectionStyle(direction, value, newMin, newMax);
 
   // ============================ Render ============================
   let handleNode = (

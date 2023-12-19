@@ -18,6 +18,7 @@ export interface SliderContextProps {
   ariaValueTextFormatterForHandle?: AriaValueFormat | AriaValueFormat[];
   classNames: SliderClassNames;
   styles: SliderStyles;
+  marksGap: boolean;
 }
 
 const SliderContext = React.createContext<SliderContextProps>({
@@ -31,6 +32,7 @@ const SliderContext = React.createContext<SliderContextProps>({
   keyboard: true,
   styles: {},
   classNames: {},
+  marksGap: false,
 });
 
 export default SliderContext;

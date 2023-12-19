@@ -17,12 +17,15 @@ export interface TrackProps {
 
 const Track: React.FC<TrackProps> = (props) => {
   const { prefixCls, style, start, end, index, onStartMove, replaceCls } = props;
-  const { direction, min, max, disabled, range, classNames } = React.useContext(SliderContext);
+  const { direction, min, max, disabled, range, classNames, marksGap } =
+    React.useContext(SliderContext);
 
   const trackPrefixCls = `${prefixCls}-track`;
 
   const offsetStart = getOffset(start, min, max);
-  const offsetEnd = getOffset(end, min, max);
+  const newMin = marksGap ? min - 0.5 : min;
+  const newMax = marksGap ? max + 0.5 : max;
+  const offsetEnd = getOffset(end, newMin, newMax);
 
   // ============================ Events ============================
   const onInternalStartMove = (e: React.MouseEvent | React.TouchEvent) => {

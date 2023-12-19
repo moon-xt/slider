@@ -89,6 +89,7 @@ export interface SliderProps<ValueType = number | number[]> {
 
   // Decorations
   marks?: Record<string | number, React.ReactNode | MarkObj>;
+  marksGap?: boolean;
   dots?: boolean;
 
   // Components
@@ -154,6 +155,7 @@ const Slider = React.forwardRef<SliderRef, SliderProps<number | number[]>>((prop
 
     // Decorations
     marks,
+    marksGap = false,
     dots,
 
     // Components
@@ -476,6 +478,7 @@ const Slider = React.forwardRef<SliderRef, SliderProps<number | number[]>>((prop
       ariaValueTextFormatterForHandle,
       styles: styles || {},
       classNames: classNames || {},
+      marksGap,
     }),
     [
       mergedMin,

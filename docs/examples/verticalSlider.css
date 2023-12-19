@@ -1,0 +1,15 @@
+.rc-slider-handle-dragging {
+  box-shadow: none !important;
+}
+.rc-slider-handle:focus-visible {
+  box-shadow: none !important;
+}
+.rc-slider-step {
+  display: none !important;
+}
+.rc-slider-track,
+.rc-slider-tracks {
+  border-radius: 0;
+  border-bottom-left-radius: 14.5px !important;
+  border-bottom-right-radius: 14.5px !important;
+}
